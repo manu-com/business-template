@@ -8,11 +8,16 @@ function App() {
       <Navbar brand="Brand" />
 
       <Hero
-        badge="Welcome"
-        title="Build something great"
-        description="We help businesses grow with modern solutions. Professional, reliable, and results-driven."
-        primaryCta={{ label: "Get Started", href: "#contact" }}
-        secondaryCta={{ label: "Learn More", href: "#about" }}
+        badge="Digital Agency"
+        title="Websites that drive revenue"
+        description="We design and build high-performing websites for B2B companies. Strategy, design, and development — all under one roof."
+        primaryCta={{ label: "Start a project", href: "#contact" }}
+        secondaryCta={{ label: "View our work", href: "#about" }}
+        visual={
+          <div className="flex h-64 w-full items-center justify-center rounded-xl border border-gray-200 bg-white sm:h-80">
+            <span className="text-sm text-slate-400">Project showcase</span>
+          </div>
+        }
       />
 
       <Footer />
