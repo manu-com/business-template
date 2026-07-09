@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+
+PROJECT.md
+TASKS.md
+STYLEGUIDE.md
+DESIGN.md
