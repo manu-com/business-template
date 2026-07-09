@@ -1,6 +1,6 @@
 import { Navbar } from "./components/layout";
 import { Footer } from "./components/layout";
-import { Hero } from "./components/sections";
+import { About, Hero, Services } from "./components/sections";
 
 function App() {
   return (
@@ -16,6 +16,16 @@ function App() {
         visual={
           <div className="flex h-64 w-full items-center justify-center rounded-xl border border-gray-200 bg-white sm:h-80">
             <span className="text-sm text-slate-400">Project showcase</span>
+          </div>
+        }
+      />
+
+      <Services />
+
+      <About
+        visual={
+          <div className="flex h-64 w-full items-center justify-center rounded-xl border border-gray-200 bg-white sm:h-80">
+            <span className="text-sm text-slate-400">Team photo</span>
           </div>
         }
       />
