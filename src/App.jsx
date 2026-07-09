@@ -1,6 +1,6 @@
 import { Navbar } from "./components/layout";
 import { Footer } from "./components/layout";
-import { About, Hero, Services } from "./components/sections";
+import { About, Hero, Services, Testimonials } from "./components/sections";
 
 function App() {
   return (
@@ -29,6 +29,8 @@ function App() {
           </div>
         }
       />
+
+      <Testimonials />
 
       <Footer />
     </>
