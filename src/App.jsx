@@ -1,6 +1,6 @@
 import { Navbar } from "./components/layout";
 import { Footer } from "./components/layout";
-import { About, Hero, Services, Testimonials } from "./components/sections";
+import { About, Contact, Hero, Services, Testimonials } from "./components/sections";
 
 function App() {
   return (
@@ -31,6 +31,8 @@ function App() {
       />
 
       <Testimonials />
+
+      <Contact />
 
       <Footer />
     </>
