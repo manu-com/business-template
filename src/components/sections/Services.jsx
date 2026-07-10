@@ -1,31 +1,15 @@
-import { Card, Container, SectionTitle } from "../ui";
+import { Card, Container, Section, SectionTitle } from "../ui";
+import { services as defaultServicesData } from "../../data";
 
-const defaultServices = [
-  {
-    title: "Web Design",
-    description:
-      "Custom websites built to convert visitors into customers. Clean layouts, clear messaging, and modern aesthetics.",
-  },
-  {
-    title: "Development",
-    description:
-      "Fast, scalable web applications built with modern frameworks. Performance and reliability from day one.",
-  },
-  {
-    title: "Brand Strategy",
-    description:
-      "Position your business with clarity. We define your voice, visuals, and market approach.",
-  },
-];
-
-export default function Services({ services = defaultServices }) {
+export default function Services({
+  title = defaultServicesData.title,
+  description = defaultServicesData.description,
+  services = defaultServicesData.items,
+}) {
   return (
-    <section className="bg-white py-16 sm:py-24 lg:py-32" id="services">
+    <Section id="services">
       <Container>
-        <SectionTitle
-          title="What we do"
-          description="We deliver end-to-end digital solutions for companies ready to grow."
-        />
+        <SectionTitle title={title} description={description} />
 
         <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:mt-16 lg:grid-cols-3 lg:gap-8">
           {services.map((service) => (
@@ -45,6 +29,6 @@ export default function Services({ services = defaultServices }) {
           ))}
         </div>
       </Container>
-    </section>
+    </Section>
   );
 }

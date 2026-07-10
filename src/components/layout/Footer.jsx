@@ -1,32 +1,24 @@
 import { Container } from "../ui";
-
-const defaultNavigationLinks = [
-  { label: "Services", href: "#services" },
-  { label: "About", href: "#about" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Contact", href: "#contact" },
-];
-
-const defaultContactInfo = [
-  "hello@company.com",
-  "+1 (555) 123-4567",
-  "123 Business St\nSan Francisco, CA 94102",
-];
-
-const defaultSocialLinks = [
-  { label: "Twitter", href: "#" },
-  { label: "LinkedIn", href: "#" },
-  { label: "GitHub", href: "#" },
-];
+import {
+  company,
+  contactInfo as defaultContactInfo,
+  navigationLinks,
+  socialLinks,
+} from "../../data";
 
 export default function Footer({
-  brand = "Brand",
-  description = "Building modern solutions for today's businesses. Professional, reliable, and results-driven.",
-  navigationLinks = defaultNavigationLinks,
+  brand = company.brand,
+  description = company.description,
+  navigationLinks: navLinks = navigationLinks,
   contactInfo = defaultContactInfo,
-  socialLinks = defaultSocialLinks,
+  socialLinks: social = socialLinks,
 }) {
+  const contactItems = [
+    contactInfo.email,
+    contactInfo.phone,
+    contactInfo.location,
+  ];
+
   return (
     <footer className="border-t border-gray-200 bg-white">
       <Container>
@@ -45,7 +37,7 @@ export default function Footer({
               Navigation
             </h3>
             <ul className="mt-4 space-y-3">
-              {navigationLinks.map((link) => (
+              {navLinks.map((link) => (
                 <li key={link.href}>
                   <a
                     href={link.href}
@@ -63,7 +55,7 @@ export default function Footer({
               Contact
             </h3>
             <ul className="mt-4 space-y-3 text-sm text-slate-500">
-              {contactInfo.map((item, index) => (
+              {contactItems.map((item, index) => (
                 <li key={index} className="whitespace-pre-line">
                   {item}
                 </li>
@@ -76,7 +68,7 @@ export default function Footer({
               Follow Us
             </h3>
             <ul className="mt-4 space-y-3">
-              {socialLinks.map((link) => (
+              {social.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}

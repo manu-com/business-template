@@ -1,13 +1,20 @@
 import { useState } from "react";
-import { Button, Card, Container, SectionTitle } from "../ui";
+import { Button, Card, Container, Section, SectionTitle } from "../ui";
+import {
+  contact as defaultContactData,
+  contactInfo as defaultContactInfo,
+} from "../../data";
 
-const defaultContactInfo = {
-  email: "hello@company.com",
-  phone: "+1 (555) 123-4567",
-  location: "123 Business St, San Francisco, CA 94102",
-};
-
-export default function Contact({ contactInfo = defaultContactInfo }) {
+export default function Contact({
+  title = defaultContactData.title,
+  description = defaultContactData.description,
+  body = defaultContactData.body,
+  successTitle = defaultContactData.successTitle,
+  successMessage = defaultContactData.successMessage,
+  submitLabel = defaultContactData.submitLabel,
+  resetLabel = defaultContactData.resetLabel,
+  contactInfo = defaultContactInfo,
+}) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -29,19 +36,13 @@ export default function Contact({ contactInfo = defaultContactInfo }) {
   };
 
   return (
-    <section className="bg-white py-16 sm:py-24 lg:py-32" id="contact">
+    <Section id="contact">
       <Container>
-        <SectionTitle
-          title="Get in touch"
-          description="Have a project in mind? We'd love to hear about it."
-        />
+        <SectionTitle title={title} description={description} />
 
         <div className="mt-12 grid gap-12 lg:mt-16 lg:grid-cols-2 lg:gap-16">
           <div>
-            <p className="text-lg leading-relaxed text-slate-500">
-              Reach out and let's discuss how we can help. We respond to every
-              inquiry within one business day.
-            </p>
+            <p className="text-lg leading-relaxed text-slate-500">{body}</p>
 
             <div className="mt-10 space-y-6">
               <div>
@@ -69,18 +70,16 @@ export default function Contact({ contactInfo = defaultContactInfo }) {
             {submitted ? (
               <div className="flex h-full flex-col items-center justify-center py-8 text-center">
                 <h3 className="text-xl font-semibold text-gray-900">
-                  Message sent
+                  {successTitle}
                 </h3>
-                <p className="mt-2 text-slate-500">
-                  Thanks for reaching out. We'll get back to you soon.
-                </p>
+                <p className="mt-2 text-slate-500">{successMessage}</p>
                 <Button
                   className="mt-6"
                   variant="secondary"
                   size="small"
                   onClick={() => setSubmitted(false)}
                 >
-                  Send another
+                  {resetLabel}
                 </Button>
               </div>
             ) : (
@@ -137,13 +136,13 @@ export default function Contact({ contactInfo = defaultContactInfo }) {
                   />
                 </div>
                 <Button type="submit" className="w-full">
-                  Send message
+                  {submitLabel}
                 </Button>
               </form>
             )}
           </Card>
         </div>
       </Container>
-    </section>
+    </Section>
   );
 }

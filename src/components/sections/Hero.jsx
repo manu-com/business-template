@@ -1,15 +1,16 @@
-import { Button, Container } from "../ui";
+import { Button, Container, Section } from "../ui";
+import { hero as defaultHero } from "../../data";
 
 export default function Hero({
-  badge,
-  title,
-  description,
-  primaryCta = { label: "Get Started", href: "#" },
-  secondaryCta = { label: "Learn More", href: "#" },
+  badge = defaultHero.badge,
+  title = defaultHero.title,
+  description = defaultHero.description,
+  primaryCta = defaultHero.primaryCta,
+  secondaryCta = defaultHero.secondaryCta,
   visual,
 }) {
   return (
-    <section className="bg-white pb-16 pt-24 sm:pb-24 sm:pt-32 lg:pb-32 lg:pt-40">
+    <Section className="pb-16 pt-24 sm:pb-24 sm:pt-32 lg:pb-32 lg:pt-40">
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
@@ -46,6 +47,6 @@ export default function Hero({
           </div>
         </div>
       </Container>
-    </section>
+    </Section>
   );
 }

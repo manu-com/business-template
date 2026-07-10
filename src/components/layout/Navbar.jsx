@@ -1,15 +1,8 @@
 import { useState } from "react";
 import { Button, Container } from "../ui";
+import { company, navigationLinks } from "../../data";
 
-const links = [
-  { label: "Services", href: "#services" },
-  { label: "About", href: "#about" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Contact", href: "#contact" },
-];
-
-export default function Navbar({ brand = "Brand" }) {
+export default function Navbar({ brand = company.brand, links = navigationLinks }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (

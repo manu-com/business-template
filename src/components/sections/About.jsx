@@ -1,38 +1,21 @@
-import { Container, SectionTitle } from "../ui";
-
-const defaultValues = [
-  {
-    title: "Quality first",
-    description: "Every project gets our full attention. We don't cut corners.",
-  },
-  {
-    title: "Transparent process",
-    description: "No surprises. You see progress in real time and know exactly where things stand.",
-  },
-  {
-    title: "Long-term partnerships",
-    description: "We build relationships, not just websites. Your success is our success.",
-  },
-];
+import { Container, Section, SectionTitle } from "../ui";
+import { about as defaultAbout } from "../../data";
 
 export default function About({
-  description = "We're a small team of designers and developers who care about craft. Since 2018, we've helped B2B companies turn their digital presence into a competitive advantage.",
-  values = defaultValues,
+  title = defaultAbout.title,
+  description = defaultAbout.description,
+  body = defaultAbout.body,
+  values = defaultAbout.values,
   visual,
 }) {
   return (
-    <section className="bg-white py-16 sm:py-24 lg:py-32" id="about">
+    <Section id="about">
       <Container>
-        <SectionTitle
-          title="About us"
-          description="We believe great websites come from deep understanding — of your business, your users, and your goals."
-        />
+        <SectionTitle title={title} description={description} />
 
         <div className="mt-12 grid items-center gap-12 lg:mt-16 lg:grid-cols-2 lg:gap-16">
           <div>
-            <p className="text-lg leading-relaxed text-slate-500">
-              {description}
-            </p>
+            <p className="text-lg leading-relaxed text-slate-500">{body}</p>
 
             <div className="mt-10 space-y-6">
               {values.map((value) => (
@@ -57,6 +40,6 @@ export default function About({
           </div>
         </div>
       </Container>
-    </section>
+    </Section>
   );
 }
