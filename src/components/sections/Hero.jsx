@@ -1,4 +1,4 @@
-import { Button, Container, Section } from "../ui";
+import { Button, BrowserMockup, Container, Section } from "../ui";
 import { hero as defaultHero } from "../../data";
 
 export default function Hero({
@@ -38,12 +38,8 @@ export default function Hero({
             </div>
           </div>
 
-          <div className="flex items-center justify-center rounded-2xl border border-gray-200 bg-slate-50 p-8 sm:p-12 lg:p-16">
-            {visual || (
-              <div className="flex h-64 w-full items-center justify-center text-sm text-slate-400 sm:h-80">
-                Visual
-              </div>
-            )}
+          <div>
+            {visual || <BrowserMockup />}
           </div>
         </div>
       </Container>
