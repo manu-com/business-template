@@ -1,24 +1,71 @@
 import { useState } from "react";
 import { Button, Container } from "../ui";
 import { company, navigationLinks } from "../../data";
+import { useActiveSection, useScrolled } from "../../hooks";
+
+const activeStyle = "bg-slate-100 text-gray-900";
+const inactiveStyle = "text-slate-600 hover:text-gray-900";
+const mobileInactiveStyle = "text-slate-600 hover:bg-slate-50 hover:text-gray-900";
 
 export default function Navbar({ brand = company.brand, links = navigationLinks }) {
   const [isOpen, setIsOpen] = useState(false);
+  const scrolled = useScrolled(20);
+
+  const sectionIds = links.map((link) => link.href.replace("#", ""));
+  const activeId = useActiveSection(sectionIds);
+
+  const scrollTo = (href) => {
+    setIsOpen(false);
+    const id = href.replace("#", "");
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const scrollToTop = (e) => {
+    e.preventDefault();
+    setIsOpen(false);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const getLinkClass = (href, isMobile = false) => {
+    const id = href.replace("#", "");
+    const isActive = activeId === id;
+    const base = "text-sm font-medium transition-colors duration-200 rounded-lg";
+    const active = isActive ? activeStyle : isMobile ? mobileInactiveStyle : inactiveStyle;
+    const padding = isMobile ? "block px-4 py-3" : "px-3 py-1.5";
+    return `${base} ${padding} ${active}`;
+  };
 
   return (
-    <nav className="fixed inset-x-0 top-0 z-50 border-b border-gray-200 bg-white">
+    <nav
+      className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-200 ${
+        scrolled
+          ? "border-gray-200 bg-white/95 shadow-sm backdrop-blur-md lg:h-16"
+          : "border-transparent bg-white/80 backdrop-blur-sm lg:h-20"
+      }`}
+    >
       <Container>
-        <div className="flex h-16 items-center justify-between lg:h-20">
-          <a href="/" className="text-xl font-bold text-gray-900">
+        <div
+          className={`flex items-center justify-between transition-all duration-200 ${
+          scrolled ? "h-16" : "h-20"
+          }`}
+        >
+          <a href="/" className="text-xl font-bold text-gray-900" onClick={scrollToTop}>
             {brand}
           </a>
 
-          <div className="hidden items-center gap-8 lg:flex">
+          <div className="hidden items-center gap-1 lg:flex">
             {links.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-slate-600 transition-colors duration-200 hover:text-gray-900"
+                className={getLinkClass(link.href)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollTo(link.href);
+                }}
               >
                 {link.label}
               </a>
@@ -37,32 +84,12 @@ export default function Navbar({ brand = company.brand, links = navigationLinks 
             aria-expanded={isOpen}
           >
             {isOpen ? (
-              <svg
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={2}
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6 18L18 6M6 6l12 12"
-                />
+              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
             ) : (
-              <svg
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={2}
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M3.75 9h16.5m-16.5 6.75h16.5"
-                />
+              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
               </svg>
             )}
           </button>
@@ -79,8 +106,11 @@ export default function Navbar({ brand = company.brand, links = navigationLinks 
             <a
               key={link.href}
               href={link.href}
-              className="block rounded-lg px-4 py-3 text-sm font-medium text-slate-600 transition-colors duration-200 hover:bg-slate-50 hover:text-gray-900"
-              onClick={() => setIsOpen(false)}
+              className={getLinkClass(link.href, true)}
+              onClick={(e) => {
+                e.preventDefault();
+                scrollTo(link.href);
+              }}
             >
               {link.label}
             </a>

@@ -1,7 +1,6 @@
 export const navigationLinks = [
   { label: "Services", href: "#services" },
   { label: "About", href: "#about" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Testimonials", href: "#testimonials" },
   { label: "Contact", href: "#contact" },
 ];
