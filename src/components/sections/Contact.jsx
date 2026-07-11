@@ -45,26 +45,26 @@ export default function Contact({
         <div className="mt-12 grid gap-12 lg:mt-16 lg:grid-cols-2 lg:gap-16">
           <FadeIn>
             <div>
-              <p className="text-lg leading-relaxed text-slate-500">{body}</p>
+              <p className="text-lg leading-relaxed text-slate-500 dark:text-gray-400">{body}</p>
 
               <div className="mt-10 space-y-6">
                 <div>
-                  <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-900">
+                  <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-900 dark:text-white">
                     Email
                   </h3>
-                  <p className="mt-1 text-slate-500">{contactInfo.email}</p>
+                  <p className="mt-1 text-slate-500 dark:text-gray-400">{contactInfo.email}</p>
                 </div>
                 <div>
-                  <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-900">
+                  <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-900 dark:text-white">
                     Phone
                   </h3>
-                  <p className="mt-1 text-slate-500">{contactInfo.phone}</p>
+                  <p className="mt-1 text-slate-500 dark:text-gray-400">{contactInfo.phone}</p>
                 </div>
                 <div>
-                  <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-900">
+                  <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-900 dark:text-white">
                     Location
                   </h3>
-                  <p className="mt-1 text-slate-500">{contactInfo.location}</p>
+                  <p className="mt-1 text-slate-500 dark:text-gray-400">{contactInfo.location}</p>
                 </div>
               </div>
             </div>
@@ -74,10 +74,10 @@ export default function Contact({
             <Card>
               {submitted ? (
                 <div className="flex h-full flex-col items-center justify-center py-8 text-center">
-                  <h3 className="text-xl font-semibold text-gray-900">
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
                     {successTitle}
                   </h3>
-                  <p className="mt-2 text-slate-500">{successMessage}</p>
+                  <p className="mt-2 text-slate-500 dark:text-gray-400">{successMessage}</p>
                   <Button
                     className="mt-6"
                     variant="secondary"
@@ -92,7 +92,7 @@ export default function Contact({
                   <div>
                     <label
                       htmlFor="name"
-                      className="block text-sm font-medium text-gray-900"
+                      className="block text-sm font-medium text-gray-900 dark:text-white"
                     >
                       Name
                     </label>
@@ -103,13 +103,13 @@ export default function Contact({
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="mt-1.5 block w-full rounded-lg border border-gray-200 px-4 py-2.5 text-sm text-gray-900 outline-none transition-colors duration-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+                      className="mt-1.5 block w-full rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-sm text-gray-900 outline-none transition-colors duration-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder-gray-500 dark:focus:border-blue-400 dark:focus:ring-blue-400/20"
                     />
                   </div>
                   <div>
                     <label
                       htmlFor="email"
-                      className="block text-sm font-medium text-gray-900"
+                      className="block text-sm font-medium text-gray-900 dark:text-white"
                     >
                       Email
                     </label>
@@ -120,13 +120,13 @@ export default function Contact({
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="mt-1.5 block w-full rounded-lg border border-gray-200 px-4 py-2.5 text-sm text-gray-900 outline-none transition-colors duration-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+                      className="mt-1.5 block w-full rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-sm text-gray-900 outline-none transition-colors duration-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder-gray-500 dark:focus:border-blue-400 dark:focus:ring-blue-400/20"
                     />
                   </div>
                   <div>
                     <label
                       htmlFor="message"
-                      className="block text-sm font-medium text-gray-900"
+                      className="block text-sm font-medium text-gray-900 dark:text-white"
                     >
                       Message
                     </label>
@@ -137,7 +137,7 @@ export default function Contact({
                       value={formData.message}
                       onChange={handleChange}
                       required
-                      className="mt-1.5 block w-full resize-none rounded-lg border border-gray-200 px-4 py-2.5 text-sm text-gray-900 outline-none transition-colors duration-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+                      className="mt-1.5 block w-full resize-none rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-sm text-gray-900 outline-none transition-colors duration-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder-gray-500 dark:focus:border-blue-400 dark:focus:ring-blue-400/20"
                     />
                   </div>
                   <Button type="submit" className="w-full">

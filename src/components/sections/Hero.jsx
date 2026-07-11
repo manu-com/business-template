@@ -1,4 +1,4 @@
-import { Button, BrowserMockup, Container, FadeIn, Section } from "../ui";
+import { Button, BrowserMockup, Container, FadeIn, HeroStats, Section } from "../ui";
 import { hero as defaultHero } from "../../data";
 
 export default function Hero({
@@ -7,6 +7,7 @@ export default function Hero({
   description = defaultHero.description,
   primaryCta = defaultHero.primaryCta,
   secondaryCta = defaultHero.secondaryCta,
+  stats = defaultHero.stats,
   visual,
 }) {
   return (
@@ -16,20 +17,20 @@ export default function Hero({
           <div>
             <FadeIn delay={0}>
               {badge && (
-                <span className="mb-4 inline-block rounded-full border border-gray-200 bg-slate-50 px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-slate-600">
+                <span className="mb-4 inline-block rounded-full border border-gray-200 bg-slate-50 px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-slate-600 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300">
                   {badge}
                 </span>
               )}
             </FadeIn>
 
             <FadeIn delay={0.1}>
-              <h1 className="text-4xl font-bold leading-tight text-gray-900 sm:text-5xl lg:text-6xl">
+              <h1 className="text-4xl font-bold leading-tight text-gray-900 dark:text-white sm:text-5xl lg:text-6xl">
                 {title}
               </h1>
             </FadeIn>
 
             <FadeIn delay={0.2}>
-              <p className="mt-6 max-w-lg text-lg leading-relaxed text-slate-500">
+              <p className="mt-6 max-w-lg text-lg leading-relaxed text-slate-500 dark:text-gray-400">
                 {description}
               </p>
             </FadeIn>
@@ -43,6 +44,10 @@ export default function Hero({
                   {secondaryCta.label}
                 </Button>
               </div>
+            </FadeIn>
+
+            <FadeIn delay={0.4}>
+              <HeroStats stats={stats} />
             </FadeIn>
           </div>
 

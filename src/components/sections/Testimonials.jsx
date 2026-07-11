@@ -18,16 +18,16 @@ export default function Testimonials({
             <FadeIn key={testimonial.name} delay={index * 0.1}>
               <Card>
                 <blockquote>
-                  <p className="text-base leading-relaxed text-slate-600">
+                  <p className="text-base leading-relaxed text-slate-600 dark:text-gray-300">
                     &ldquo;{testimonial.quote}&rdquo;
                   </p>
                 </blockquote>
 
-                <div className="mt-6 border-t border-gray-100 pt-4">
-                  <p className="text-sm font-semibold text-gray-900">
+                <div className="mt-6 border-t border-gray-100 pt-4 dark:border-gray-700">
+                  <p className="text-sm font-semibold text-gray-900 dark:text-white">
                     {testimonial.name}
                   </p>
-                  <p className="mt-0.5 text-sm text-slate-500">
+                  <p className="mt-0.5 text-sm text-slate-500 dark:text-gray-400">
                     {testimonial.role}
                   </p>
                 </div>

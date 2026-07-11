@@ -1,10 +1,11 @@
 import { Navbar } from "./components/layout";
 import { Footer } from "./components/layout";
 import { About, Contact, Hero, Services, Testimonials } from "./components/sections";
+import { ThemeProvider } from "./components/ui";
 
 function App() {
   return (
-    <>
+    <ThemeProvider>
       <Navbar brand="Brand" />
 
       <Hero
@@ -14,7 +15,7 @@ function App() {
         primaryCta={{ label: "Start a project", href: "#contact" }}
         secondaryCta={{ label: "View our work", href: "#about" }}
         visual={
-          <div className="flex h-64 w-full items-center justify-center rounded-xl border border-gray-200 bg-white sm:h-80">
+          <div className="flex h-64 w-full items-center justify-center rounded-xl border border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800 sm:h-80">
             <span className="text-sm text-slate-400">Project showcase</span>
           </div>
         }
@@ -24,7 +25,7 @@ function App() {
 
       <About
         visual={
-          <div className="flex h-64 w-full items-center justify-center rounded-xl border border-gray-200 bg-white sm:h-80">
+          <div className="flex h-64 w-full items-center justify-center rounded-xl border border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800 sm:h-80">
             <span className="text-sm text-slate-400">Team photo</span>
           </div>
         }
@@ -35,7 +36,7 @@ function App() {
       <Contact />
 
       <Footer />
-    </>
+    </ThemeProvider>
   );
 }
 

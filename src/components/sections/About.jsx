@@ -18,15 +18,15 @@ export default function About({
         <div className="mt-12 grid items-center gap-12 lg:mt-16 lg:grid-cols-2 lg:gap-16">
           <div>
             <FadeIn>
-              <p className="text-lg leading-relaxed text-slate-500">{body}</p>
+              <p className="text-lg leading-relaxed text-slate-500 dark:text-gray-400">{body}</p>
 
               <div className="mt-10 space-y-6">
                 {values.map((value) => (
                   <div key={value.title}>
-                    <h3 className="text-base font-semibold text-gray-900">
+                    <h3 className="text-base font-semibold text-gray-900 dark:text-white">
                       {value.title}
                     </h3>
-                    <p className="mt-1 text-sm leading-relaxed text-slate-500">
+                    <p className="mt-1 text-sm leading-relaxed text-slate-500 dark:text-gray-400">
                       {value.description}
                     </p>
                   </div>

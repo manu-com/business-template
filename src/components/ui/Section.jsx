@@ -1,7 +1,7 @@
 const backgrounds = {
-  white: "bg-white",
-  light: "bg-slate-50",
-  dark: "bg-gray-900",
+  white: "bg-white dark:bg-gray-900",
+  light: "bg-slate-50 dark:bg-gray-800/50",
+  dark: "bg-gray-900 dark:bg-gray-950",
 };
 
 export default function Section({
