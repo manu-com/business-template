@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export default function useActiveSection(ids, options = {}) {
+export default function useActiveSection(ids) {
   const [activeId, setActiveId] = useState("");
 
   useEffect(() => {
@@ -14,23 +14,28 @@ export default function useActiveSection(ids, options = {}) {
       (entries) => {
         const visible = entries
           .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+          .sort((a, b) => {
+            const aTop = a.boundingClientRect.top;
+            const bTop = b.boundingClientRect.top;
+            if (aTop >= 0 && bTop >= 0) return aTop - bTop;
+            if (aTop < 0 && bTop < 0) return bTop - aTop;
+            return aTop >= 0 ? -1 : 1;
+          });
 
         if (visible.length > 0) {
           setActiveId(visible[0].target.id);
         }
       },
       {
-        rootMargin: "-20% 0px -60% 0px",
+        rootMargin: "-10% 0px -80% 0px",
         threshold: 0,
-        ...options,
       }
     );
 
     elements.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
-  }, [ids, options]);
+  }, [ids]);
 
   return activeId;
 }
