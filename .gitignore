@@ -12,6 +12,11 @@ dist
 dist-ssr
 *.local
 
+# Environment files
+.env
+.env.*
+!.env.example
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -23,7 +28,16 @@ dist-ssr
 *.sln
 *.sw?
 
+# Testing
+coverage
 
+# Build info
+*.tsbuildinfo
+
+# Screenshots (add to repo manually if needed)
+public/screenshots
+
+# Internal docs (not for distribution)
 PROJECT.md
 TASKS.md
 STYLEGUIDE.md
