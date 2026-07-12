@@ -3,8 +3,7 @@
 A professional single-page business website built with React, Vite, and Tailwind CSS. Designed for B2B companies, agencies, and service-based businesses.
 
 ## Live Demo
-
-[https://your-domain.vercel.app](https://your-domain.vercel.app)
+[https://business-template-kohl.vercel.app/](https://business-template-kohl.vercel.app/)
 
 ## Screenshots
 
