@@ -34,8 +34,6 @@ coverage
 # Build info
 *.tsbuildinfo
 
-# Screenshots (add to repo manually if needed)
-public/screenshots
 
 # Internal docs (not for distribution)
 PROJECT.md
