@@ -11,7 +11,6 @@ A professional single-page business website built with React, Vite, and Tailwind
 |---------|--------|-----------|
 | ![Desktop](./public/screenshots/desktop.png) | ![Mobile](./public/screenshots/mobile.png) | ![Dark mode](./public/screenshots/dark.png) |
 
-> Add your screenshots to `public/screenshots/` and replace the paths above.
 
 ## Purpose
 
