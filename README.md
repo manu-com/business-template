@@ -147,4 +147,4 @@ Upload the `dist/` directory to any static host (GitHub Pages, Cloudflare Pages,
 
 MIT
 
-Copyright (c) 2026 [Your Name]
+Copyright (c) 2026 Spekter
